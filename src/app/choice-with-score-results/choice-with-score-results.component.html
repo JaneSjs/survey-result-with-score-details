@@ -1,0 +1,17 @@
+<div class="choice-container">
+  <sv-ng-selectbase-item
+    [showLabel]="true"
+    [question]="question"
+    [model]="model"
+    [inputType]="questionType"
+  />
+</div>
+
+@if (this.questionAnswer) {
+  <div [ngClass]="scoreContainerClasses" class="score-container">
+    <span [class]="textCssClass">
+      {{ model.score }}
+      Points
+    </span>
+  </div>
+}

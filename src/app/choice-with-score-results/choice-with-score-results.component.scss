@@ -1,0 +1,19 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 2fr));
+  gap: 16px;
+
+  .choice-container {
+    grid-column: 1/5;
+  }
+
+  .selected-choice span {
+    font-weight: 500;
+  }
+
+  .score-container {
+    display: flex;
+    align-items: center;
+    grid-column-start: 5;
+  }
+}

@@ -27,7 +27,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "survey-core/survey-core.fontless.min.css"
             ]
           },
           "configurations": {

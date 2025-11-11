@@ -1,0 +1,41 @@
+<div [class]="model.cssClasses.rootRadio">
+  <fieldset role="presentation" [class]="model.cssClasses.radioFieldset">
+    <ng-container
+      [ngTemplateOutlet]="choiceDetails"
+      [ngTemplateOutletContext]="{
+        isSelected: !questionAnswer,
+        label: model.locLabelFalse,
+        score: model.noScore,
+      }"
+    />
+
+    <ng-container
+      [ngTemplateOutlet]="choiceDetails"
+      [ngTemplateOutletContext]="{
+        isSelected: questionAnswer,
+        label: model.locLabelTrue,
+        score: model.yesScore,
+      }"
+    />
+  </fieldset>
+</div>
+
+<ng-template
+  #choiceDetails
+  let-isSelected="isSelected"
+  let-label="label"
+  let-score="score"
+>
+  <div class="choice-container">
+    <div class="choice-radio-button">
+      <sv-ng-boolean-radio-item
+        [ngClass]="getCheckedClass(isSelected)"
+        [class]="disabledCssClass"
+        [locText]="label"
+        [question]="model"
+      />
+    </div>
+
+    <p>{{score}} Points</p>
+  </div>
+</ng-template>
