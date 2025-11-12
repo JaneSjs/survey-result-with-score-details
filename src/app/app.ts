@@ -11,6 +11,9 @@ import { surveyJson, surveyAnswers } from './_utils/survey.json';
 import { BooleanWithScoreResultsComponent } from './boolean-with-score-results/boolean-with-score-results.component';
 import { ChoiceWithScoreResultsComponent } from './choice-with-score-results/choice-with-score-results.component';
 import { SelectBaseWithScoreResultsComponent } from './select-base-with-score-results/select-base-with-score-results.component';
+import { defaultCss } from 'survey-core';
+
+Object.assign(defaultCss.dropdown, defaultCss.radiogroup);
 
 @Component({
   selector: 'app-root',
