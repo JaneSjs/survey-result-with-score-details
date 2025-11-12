@@ -1,22 +1,26 @@
 <div [class]="model.cssClasses.rootRadio">
   <fieldset role="presentation" [class]="model.cssClasses.radioFieldset">
+    
     <ng-container
       [ngTemplateOutlet]="choiceDetails"
       [ngTemplateOutletContext]="{
-        isSelected: !questionAnswer,
+        isSelected: model.value === model.getValueFalse(),
         label: model.locLabelFalse,
         score: model.noScore,
+        value: model.getValueFalse()
       }"
-    />
-
+    ></ng-container>
+    
     <ng-container
       [ngTemplateOutlet]="choiceDetails"
       [ngTemplateOutletContext]="{
-        isSelected: questionAnswer,
+        isSelected: model.value === model.getValueTrue(),
         label: model.locLabelTrue,
         score: model.yesScore,
+        value: model.getValueTrue()
       }"
-    />
+    ></ng-container>
+
   </fieldset>
 </div>
 
@@ -25,17 +29,19 @@
   let-isSelected="isSelected"
   let-label="label"
   let-score="score"
+  let-value="value"
 >
   <div class="choice-container">
     <div class="choice-radio-button">
       <sv-ng-boolean-radio-item
         [ngClass]="getCheckedClass(isSelected)"
         [class]="disabledCssClass"
+        [value]="value"
         [locText]="label"
         [question]="model"
-      />
+      ></sv-ng-boolean-radio-item>
     </div>
 
-    <p>{{score}} Points</p>
+    <p class="choice-score">{{ score }} Points</p>
   </div>
 </ng-template>
